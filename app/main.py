@@ -1,7 +1,7 @@
 from fastapi import FastAPI, Depends, Query
 from fastapi_pagination import add_pagination, Page
 from typing import List, Optional
-from schemas.schemas import PostStatisticSchema, PostSchema, PostReadSchema
+from schemas.schemas import PostReadSchema, PostSchema, PostStatisticSchema
 from dbapi.dependecies import get_async_session, Base, engine
 from dbapi.crud import get_posts, process_post_content, get_all_post
 from sqlalchemy.ext.asyncio import AsyncSession
@@ -19,7 +19,7 @@ async def list_posts(
     keyword: Optional[str] = None,
     session: AsyncSession = Depends(get_async_session)
 ):
-    """Асинхронная функция для получения постов: \n
+    """Асинхронный метод для получения постов: \n
     * В query параметрах можем передать - \n
     category: str \n
     keyword: str  \n
@@ -34,7 +34,7 @@ async def get_post_stats(
     keyword: Optional[str] = None,
     session: AsyncSession = Depends(get_async_session)
 ):
-    """Асинхронная функция для получения статистики по постам:\n
+    """Асинхронный метод для получения статистики по постам:\n
     category: str \n
     keyword: str  \n
     """
@@ -43,14 +43,14 @@ async def get_post_stats(
 
 @app.get('/all/{items}',response_model=List[PostReadSchema])
 async def get_all_posts(items:int,session: AsyncSession = Depends(get_async_session)):
-    """Метод извлечения всех записей из БД \n 
-    items:int колличество записей."""
+    """Асинхронный метод извлечения всех записей из базы данных \n 
+    Параметр items:int  - колличество записей"""
     return await get_all_post(session,items=items) 
 
 
 
 @app.on_event("startup")
 async def startup():
-    """Асинхронная функция для создания всех таблиц в базе данных"""
+    """Асинхронный метод для создания всех таблиц в базе данных"""
     async with engine.begin() as conn:
         await conn.run_sync(Base.metadata.create_all)

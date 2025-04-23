@@ -6,6 +6,7 @@ __pycache__/
 *.pyw
 *.pyz
 
-.env
 
+.env
 test.db
+.pytest_cache/

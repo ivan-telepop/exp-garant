@@ -1,6 +1,4 @@
 from pydantic import BaseModel
-from fastapi_pagination import Page
-from fastapi_pagination.bases import AbstractPage
 from typing import List
 
 
@@ -17,8 +15,10 @@ class PostReadSchema(PostSchema):
     id: int
     class Config:
         orm_mode = True
+        #from_attributes = True
 
 class PostStatisticSchema(BaseModel): 
     """Pydantic схема для получения статистики по постам"""
     post_id: int
     word_count: int
+    counted: dict

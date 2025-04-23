@@ -1,8 +1,8 @@
 import asyncio
 import random
 import string
-from models.models import Post
-from dbapi.dependecies import engine,async_session,Base
+from app.models.models import Post
+from app.dbapi.dependecies import engine,async_session,Base
 
 # Скрипт наполняющий базу данных записямис случайным набором слов.
 
