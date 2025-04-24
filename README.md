@@ -41,9 +41,9 @@ Current state:
 - На борту есть Swagger / Redoc
 - Можно воспользоваться скриптом populate_recs.py который наполнит базу данных рандомными данными.
 
-#### Запуск:
+#### Запуск на `python3.12.9`:
 
-- `gh repo clone ivanIStereotekk/exp-garant` или `git clone https://github.com/ivanIStereotekk/exp-garant.git`
+- Клонируем себе `git clone https://github.com/ivanIStereotekk/exp-garant.git`
 
 - Устанавливаем зависимости `pip install -r requirements.txt`
 
@@ -54,6 +54,7 @@ Current state:
 - В браузере открываем Swagger `http://127.0.0.1:8000/docs` или Redoc `http://127.0.0.1:8000/redoc`
 
 ##### * Если нужны данные в базе данных то лучше перед запуском проекта выполниь скрипт который наполнит БД моковыми данными
+- `python populate_recs.py`
 
 
 
