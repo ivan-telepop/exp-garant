@@ -1,7 +1,8 @@
+from http.client import HTTPException
 from fastapi import FastAPI, Depends, Query
 from fastapi_pagination import add_pagination, Page
 from typing import List, Optional
-from schemas.schemas import PostReadSchema, PostSchema, PostStatisticSchema
+from schemas.schemas import PostReadSchema, PostStatisticSchema
 from dbapi.dependecies import get_async_session, Base, engine
 from dbapi.crud import get_posts, process_post_content, get_all_post
 from sqlalchemy.ext.asyncio import AsyncSession
@@ -44,8 +45,8 @@ async def get_post_stats(
 @app.get('/all/{items}',response_model=List[PostReadSchema])
 async def get_all_posts(items:int,session: AsyncSession = Depends(get_async_session)):
     """Асинхронный метод извлечения всех записей из базы данных \n 
-    Параметр items:int  - колличество записей"""
-    return await get_all_post(session,items=items) 
+    Параметр items:int  - колличество записей (обернул в abs чтобы не было отрицательных значений)"""
+    return await get_all_post(session,items=int(abs(items))) # упрощенное решение
 
 
 
