@@ -10,7 +10,11 @@ from utils.utils import get_analyzed_content
 
 
 async def get_posts(session: AsyncSession, category: Optional[str] = None, keyword: Optional[str] = None):
-    """Асинхронная функция для получения постов"""
+    """Асинхронная функция для получения posts \n
+     параметры извлечения:
+     category: str \n
+     keyword: str \n
+     """
     stmt = select(Post)
     if category:
         stmt = stmt.where(Post.category == category)

@@ -31,3 +31,30 @@ SQLAlchemy: корректная модель, асинхронный досту
 
 -- 
 
+Current state:
+- Модель определена - app.models.models
+- Функции в модуле - app.dbapi.crud .
+- Эндпоинт определен. Определил дополнительные эндпоинты - app.main
+ - List Posts
+ - Get Post Stats
+ - Get All Posts
+- На борту есть Swagger / Redoc
+- Можно воспользоваться скриптом populate_recs.py который наполнит базу данных рандомными данными.
+
+#### Запуск:
+
+- `gh repo clone ivanIStereotekk/exp-garant` или `git clone https://github.com/ivanIStereotekk/exp-garant.git`
+
+- Устанавливаем зависимости `pip install -r requirements.txt`
+
+- Переходим в папку с проектом  `cd ./app`
+
+- Запускаем проект `uvicorn main:app  --reload`
+
+- В браузере открываем Swagger `http://127.0.0.1:8000/docs` или Redoc `http://127.0.0.1:8000/redoc`
+
+##### * Если нужны данные в базе данных то лучше перед запуском проекта выполниь скрипт который наполнит БД моковыми данными
+
+
+
+
