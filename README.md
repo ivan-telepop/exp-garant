@@ -1,3 +1,5 @@
+<img alt="Test Task" src="test-task.svg" height="60" align="center">
+
 #### Тестовое задание на вакансию "бекенд разработчик"
 
 -- 
