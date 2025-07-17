@@ -49,6 +49,7 @@ async def process_post_content(session: AsyncSession, category: Optional[str] = 
     result = await session.stream(stmt)
     stats = []
     async for row in result:
+        # Пример Упрощенной аналитики
         word_count = len(row[0].content.split()) # колличество слов в строке
         counted = get_analyzed_content(row[0].content) #Количество повторений
         stats.append(PostStatisticSchema(post_id=row[0].id, word_count=word_count,counted=counted))

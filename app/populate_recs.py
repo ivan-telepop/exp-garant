@@ -9,11 +9,11 @@ from app.dbapi.dependecies import engine,async_session,Base
 
 # random data generation
 def random_word(length=5):
-    """ Функция генерирующая случайные данные - слова """
+    """ Функция генерирующая случайные данные - строки как слова """
     return ''.join(random.choices(string.ascii_lowercase, k=length))
 
 def random_sentence(min_words=5, max_words=20):
-    """ Функция генерирующая случайные данные - предложения """
+    """ Функция генерирующая случайные данные - мок строки похожие на предложения """
     words = [random_word(random.randint(3, 10)) for _ in range(random.randint(min_words, max_words))]
     return ' '.join(words).capitalize() + '.'
 
