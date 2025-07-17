@@ -1,5 +1,6 @@
 from sqlalchemy import Column, Integer, String, Text
-from dbapi.dependecies import Base
+# from app.dbapi.dependecies import Base
+from ..dbapi.dependecies import Base
 
 class Post(Base):
     """ОРМ модель post"""

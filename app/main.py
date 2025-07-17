@@ -2,14 +2,14 @@ from http.client import HTTPException
 from fastapi import FastAPI, Depends, Query
 from fastapi_pagination import add_pagination, Page
 from typing import List, Optional
-from schemas.schemas import PostReadSchema, PostStatisticSchema
-from dbapi.dependecies import get_async_session, Base, engine
-from dbapi.crud import get_posts, process_post_content, get_all_post
+from .schemas.schemas import PostReadSchema, PostStatisticSchema
+from .dbapi.dependecies import get_async_session, Base, engine
+from .dbapi.crud import get_posts, process_post_content, get_all_post
 from sqlalchemy.ext.asyncio import AsyncSession
 
 # Метаданные приложения
-description = 'Выполнение тестового задания от Гончарова Ивана'
-title = "RestAPI приложение"
+description = 'Ivan Goncharov - FastAPI Micro Service App'
+title = "RestAPI приложение - pagination endpoints"
 
 app = FastAPI(title=title, description=description)
 add_pagination(app)

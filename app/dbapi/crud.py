@@ -1,11 +1,11 @@
 from sqlalchemy.future import select
 from sqlalchemy import or_
 from sqlalchemy.ext.asyncio import AsyncSession
-from models.models import Post
-from schemas.schemas import PostStatisticSchema
+from ..models.models import Post
+from ..schemas.schemas import PostStatisticSchema
 from typing import List, Optional
 from fastapi_pagination.ext.sqlalchemy import paginate
-from utils.utils import get_analyzed_content
+from ..utils.utils import get_analyzed_content
 
 
 
