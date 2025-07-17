@@ -41,8 +41,7 @@
 
 ---
 
-
-<img alt="Test Task" src="/pics/swagger.png" height="60" align="center">
+![Превью](pics/swagger.png)
 
 
 ### Требовалось создать:
